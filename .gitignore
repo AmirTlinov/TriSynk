@@ -1,0 +1,12 @@
+# General
+.DS_Store
+.idea/
+.vscode/
+.env
+__pycache__/
+*.py[cod]
+*.swp
+
+# Agents tooling
+.agents/context/*.tmp
+.agents/tools/__pycache__/

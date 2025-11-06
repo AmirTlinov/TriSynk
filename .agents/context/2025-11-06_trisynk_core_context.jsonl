@@ -1,0 +1,5 @@
+{"source":"docs/vision.md","summary":["TriSynk Core defines a deterministic multi-frontend language focused on AI agents and cross-ecosystem reuse."],"citation":"vision.md"}
+{"source":"docs/core-spec.md","summary":["Core specification covers semantic kernel, unified type/effect system, clmr MLIR dialect, ABI, runtime, and tooling requirements."],"citation":"core-spec.md"}
+{"source":"docs/architecture.md","summary":["Architecture blueprint enumerates layer stack, agent loop, modules, data flows, and safety controls."],"citation":"architecture.md"}
+{"source":"docs/roadmap.md","summary":["Roadmap schedules phases from bootstrap through hardening with issue references and success criteria."],"citation":"roadmap.md"}
+{"source":"docs/issues.md","summary":["Issue graph links numbered ISS tasks to document anchors ensuring traceable execution."],"citation":"issues.md"}
