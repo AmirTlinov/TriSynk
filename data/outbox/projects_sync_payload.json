@@ -1,0 +1,57 @@
+[
+  {
+    "tri_id": "ISS-001",
+    "title": "Formalize Ownership & Borrow Checker",
+    "state": "open"
+  },
+  {
+    "tri_id": "ISS-002",
+    "title": "Capability Graph & Effect Contracts",
+    "state": "open"
+  },
+  {
+    "tri_id": "ISS-003",
+    "title": "Rust Frontend Prototype",
+    "state": "open"
+  },
+  {
+    "tri_id": "ISS-004",
+    "title": "C++ Frontend Prototype",
+    "state": "open"
+  },
+  {
+    "tri_id": "ISS-005",
+    "title": "Python/HPy Translator",
+    "state": "open"
+  },
+  {
+    "tri_id": "ISS-006",
+    "title": "TypeScript/JS Translator",
+    "state": "open"
+  },
+  {
+    "tri_id": "ISS-007",
+    "title": "Deterministic Runtime Core",
+    "state": "open"
+  },
+  {
+    "tri_id": "ISS-008",
+    "title": "Interop Bridges (HPy & V8)",
+    "state": "open"
+  },
+  {
+    "tri_id": "ISS-009",
+    "title": "Intent DSL & Agent Tooling",
+    "state": "closed"
+  },
+  {
+    "tri_id": "ISS-010",
+    "title": "Autotuning & Telemetry Platform",
+    "state": "open"
+  },
+  {
+    "tri_id": "ISS-011",
+    "title": "Security Hardening & Policy Engine",
+    "state": "open"
+  }
+]

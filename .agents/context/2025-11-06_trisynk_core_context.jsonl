@@ -31,3 +31,6 @@
 {"source":"docs/frontends-lowering.md","summary":["Outlines staged integration of rustc/Clang lowering with toolchain tests and instrumentation."],"citation":"frontends-lowering.md"}
 {"source":"frontends/tests/run_toolchain.sh","summary":["Invokes rustc/clang++ on sample fixtures to prime real lowering pipeline."],"citation":"toolchain-test"}
 {"source":"scripts/measure_metrics.sh","summary":["Now compiles sample.cpp with clang coverage + llvm-cov for real metrics."],"citation":"measure-metrics"}
+{"source":"docs/github-app.md","summary":["Defines GitHub App setup, secrets, and GraphQL workflow for Projects v2 automation."],"citation":"github-app.md"}
+{"source":"scripts/sync_projects.py","summary":["Uses GraphQL to synchronize tri-sync issues with Projects v2, supporting dry-run plans and apply mode."],"citation":"sync_projects.py"}
+{"source":"data/outbox/projects_sync_payload.json","summary":["Latest dry-run plan for Project automation produced by scripts/sync_projects.py."],"citation":"projects_sync_payload.json"}

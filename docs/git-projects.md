@@ -35,3 +35,4 @@
 - Workflow [.github/workflows/sync-issues.yml](../.github/workflows/sync-issues.yml) runs nightly + on demand using the `SYNC_GH_TOKEN` secret to mirror docs/issues into GitHub Issues/Projects.
 - Local development stores the token in `.agents/secrets/SYNC_GH_TOKEN` (ignored by git) so scripts can run `--apply` in mock mode without exposing credentials; production deployments must set the repository secret `SYNC_GH_TOKEN`.
 - Each synchronized issue automatically embeds linked intents so GitHub cards stay in lockstep with `docs/issues.md` and `intents/*`, and issues are closed/reopened according to `meta.state` in intents.
+- Project board automation uses [scripts/sync_projects.py](../scripts/sync_projects.py) + [docs/github-app.md](github-app.md). Provide `PROJECT_ID`, `PROJECT_FIELD_STATUS_ID`, and `PROJECT_STATUS_MAP` so the GraphQL workflow updates Projects v2 items.

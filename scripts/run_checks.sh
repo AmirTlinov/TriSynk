@@ -9,12 +9,14 @@ required_files=(
   docs/roadmap.md
   docs/issues.md
   docs/git-projects.md
+  docs/github-app.md
   .agents/context/2025-11-06_trisynk_core_context.jsonl
   .agents/tools/intent_schema.py
   scripts/lint_intents.sh
   scripts/validate_issues.py
   scripts/export_graph.py
   scripts/sync_issues.py
+  scripts/sync_projects.py
   scripts/measure_metrics.sh
   scripts/test_frontends.py
   scripts/update_metrics_history.py
@@ -42,6 +44,7 @@ required_files=(
   intents/INT-2025-0011.yaml
   data/outbox/issues_intents.json
   data/outbox/github_sync_payload.json
+  data/outbox/projects_sync_payload.json
   reports/metrics.json
 )
 
@@ -58,6 +61,7 @@ scripts/lint_intents.sh
 scripts/validate_issues.py
 scripts/export_graph.py --output data/outbox/issues_intents.json
 scripts/sync_issues.py > /dev/null
+scripts/sync_projects.py --plan data/outbox/projects_sync_payload.json
 scripts/measure_metrics.sh
 scripts/test_frontends.py
 frontends/tests/run_toolchain.sh
