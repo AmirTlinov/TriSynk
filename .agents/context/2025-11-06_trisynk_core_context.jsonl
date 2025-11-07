@@ -34,6 +34,9 @@
 {"source":"docs/github-app.md","summary":["Defines GitHub App setup, secrets, and GraphQL workflow for Projects v2 automation."],"citation":"github-app.md"}
 {"source":"scripts/sync_projects.py","summary":["Uses GraphQL to synchronize tri-sync issues with Projects v2, supporting dry-run plans and apply mode."],"citation":"sync_projects.py"}
 {"source":"data/outbox/projects_sync_payload.json","summary":["Latest dry-run plan for Project automation produced by scripts/sync_projects.py."],"citation":"projects_sync_payload.json"}
+{"source":"scripts/run_lowering.sh","summary":["Generates rustc MIR and Clang AST artifacts under data/outbox/lowering for future lowerers."],"citation":"run_lowering.sh"}
+{"source":"data/outbox/lowering/rust/sample.mir","summary":["Current MIR dump from frontends/samples/sample.rs used as reference for clmr lowering."],"citation":"sample.mir"}
+{"source":"data/outbox/lowering/clang/sample.ast.json","summary":["Clang AST JSON for frontends/samples/sample.cpp feeding C++ lowering pipeline."],"citation":"sample.ast.json"}
 {"source":".github/workflows/project-sync.yml","summary":["Project sync workflow uses GitHub App token + GraphQL to align Issues and Projects."],"citation":"project-sync.yml"}
 {"source":"scripts/run_cargo_metrics.sh","summary":["Runs cargo-llvm-cov/criterion when available and writes reports/cargo_metrics.json."],"citation":"run_cargo_metrics.sh"}
 {"source":"scripts/update_dashboard.py","summary":["Builds reports/dashboard/metrics_dashboard.json from metrics history for visualization."],"citation":"update_dashboard.py"}

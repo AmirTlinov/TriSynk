@@ -20,6 +20,7 @@ required_files=(
   scripts/measure_metrics.sh
   scripts/run_cargo_metrics.sh
   scripts/test_frontends.py
+  scripts/run_lowering.sh
   scripts/update_metrics_history.py
   scripts/update_dashboard.py
   scripts/check_metrics.py
@@ -47,6 +48,8 @@ required_files=(
   data/outbox/issues_intents.json
   data/outbox/github_sync_payload.json
   data/outbox/projects_sync_payload.json
+  data/outbox/lowering/rust/sample.mir
+  data/outbox/lowering/clang/sample.ast.json
   reports/metrics.json
   reports/cargo_metrics.json
   reports/dashboard/metrics_dashboard.json
@@ -70,6 +73,7 @@ scripts/measure_metrics.sh
 scripts/run_cargo_metrics.sh
 scripts/test_frontends.py
 frontends/tests/run_toolchain.sh
+scripts/run_lowering.sh
 scripts/update_metrics_history.py
 scripts/update_dashboard.py
 scripts/check_metrics.py

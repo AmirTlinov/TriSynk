@@ -27,3 +27,9 @@
 - Implement MIR JSON parser in Rust crate under `frontends/trisynk-rs/driver/`.
 - Prototype Clang AST ingestion script and connect it to `frontends/tests/run_toolchain.sh`.
 - Feed resulting artifacts into `reports/history/metrics_history.jsonl` for visibility.
+
+## Current Automation
+- `scripts/run_lowering.sh` produces baseline artifacts:
+  - Rust MIR dump → `data/outbox/lowering/rust/sample.mir` (via `rustc -Zunpretty=mir`).
+  - Clang AST JSON → `data/outbox/lowering/clang/sample.ast.json` (`clang++ -Xclang -ast-dump=json`).
+- These files seed the upcoming lowerers and are invoked automatically from `scripts/run_checks.sh`.
