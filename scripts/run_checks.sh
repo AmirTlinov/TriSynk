@@ -18,8 +18,10 @@ required_files=(
   scripts/sync_issues.py
   scripts/sync_projects.py
   scripts/measure_metrics.sh
+  scripts/run_cargo_metrics.sh
   scripts/test_frontends.py
   scripts/update_metrics_history.py
+  scripts/update_dashboard.py
   scripts/check_metrics.py
   .env.example
   AGENTS.md
@@ -46,6 +48,8 @@ required_files=(
   data/outbox/github_sync_payload.json
   data/outbox/projects_sync_payload.json
   reports/metrics.json
+  reports/cargo_metrics.json
+  reports/dashboard/metrics_dashboard.json
 )
 
 for f in "${required_files[@]}"; do
@@ -63,9 +67,11 @@ scripts/export_graph.py --output data/outbox/issues_intents.json
 scripts/sync_issues.py > /dev/null
 scripts/sync_projects.py --plan data/outbox/projects_sync_payload.json
 scripts/measure_metrics.sh
+scripts/run_cargo_metrics.sh
 scripts/test_frontends.py
 frontends/tests/run_toolchain.sh
 scripts/update_metrics_history.py
+scripts/update_dashboard.py
 scripts/check_metrics.py
 
 echo "[PASS] Documentation baseline + linting verified."

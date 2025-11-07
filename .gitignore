@@ -15,6 +15,8 @@ __pycache__/
 data/outbox/*.log
 data/outbox/coverage/
 data/outbox/toolchain/
+metrics/demo/target/
+metrics/demo/coverage.json
 
 # Secrets
 .agents/secrets/

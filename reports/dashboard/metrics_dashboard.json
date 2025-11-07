@@ -1,0 +1,60 @@
+{
+  "series": [
+    {
+      "timestamp": "2025-11-07T00:45:29.482331Z",
+      "coverage": 90.0,
+      "perf_latency_pct": -72.39999999999999,
+      "duration_ms": 69,
+      "notes": "Derived from frontends/tests/run_smoke.sh"
+    },
+    {
+      "timestamp": "2025-11-07T00:45:49.826036+00:00",
+      "coverage": 90.0,
+      "perf_latency_pct": -71.6,
+      "duration_ms": 71,
+      "notes": "Derived from frontends/tests/run_smoke.sh"
+    },
+    {
+      "timestamp": "2025-11-07T00:59:21.417679+00:00",
+      "coverage": 90.0,
+      "perf_latency_pct": -72.0,
+      "duration_ms": 70,
+      "notes": "Derived from frontends/tests/run_smoke.sh"
+    },
+    {
+      "timestamp": "2025-11-07T01:10:08.086035+00:00",
+      "coverage": 57.14,
+      "perf_latency_pct": -50.0,
+      "duration_ms": 75,
+      "notes": "Coverage via llvm-cov on frontends/samples/sample.cpp"
+    },
+    {
+      "timestamp": "2025-11-07T01:10:49.275659+00:00",
+      "coverage": 100.0,
+      "perf_latency_pct": -54.0,
+      "duration_ms": 69,
+      "notes": "Coverage via llvm-cov on frontends/samples/sample.cpp"
+    },
+    {
+      "timestamp": "2025-11-07T01:11:49.598650+00:00",
+      "coverage": 100.0,
+      "perf_latency_pct": -54.666666666666664,
+      "duration_ms": 68,
+      "notes": "Coverage via llvm-cov on frontends/samples/sample.cpp"
+    },
+    {
+      "timestamp": "2025-11-07T01:20:33.863711+00:00",
+      "coverage": 100.0,
+      "perf_latency_pct": -51.33333333333333,
+      "duration_ms": 73,
+      "notes": "Coverage via llvm-cov on frontends/samples/sample.cpp"
+    },
+    {
+      "timestamp": "2025-11-07T01:30:48.149040+00:00",
+      "coverage": 100.0,
+      "perf_latency_pct": -48.66666666666667,
+      "duration_ms": 77,
+      "notes": "Coverage via llvm-cov on frontends/samples/sample.cpp"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[package]
+name = "trisynk-demo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+criterion = "0.5"
+
+[lib]
+bench = false
+
+[[bench]]
+name = "baseline"
+harness = false

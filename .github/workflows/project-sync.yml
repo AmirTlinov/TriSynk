@@ -1,0 +1,38 @@
+name: project-sync
+
+on:
+  schedule:
+    - cron: '15 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          installation-id: ${{ secrets.GH_APP_INSTALLATION_ID }}
+      - name: Install deps
+        run: pip install pyyaml
+      - name: Export issue graph
+        run: scripts/export_graph.py --output data/outbox/issues_intents.json
+      - name: Sync issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_GH_TOKEN }}
+          GITHUB_REPO: AmirTlinov/TriSynk
+        run: scripts/sync_issues.py --apply
+      - name: Sync project board
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_REPO: AmirTlinov/TriSynk
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          PROJECT_FIELD_STATUS_ID: ${{ secrets.PROJECT_FIELD_STATUS_ID }}
+          PROJECT_STATUS_MAP: ${{ secrets.PROJECT_STATUS_MAP }}
+        run: scripts/sync_projects.py --apply

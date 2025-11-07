@@ -42,3 +42,4 @@
 - Timeline: [Roadmap](roadmap.md)
 - Execution: [Issues](issues.md)
 - Governance: [Git Projects Model](git-projects.md)
+- Metrics: [Metrics & Dashboards](metrics.md)
