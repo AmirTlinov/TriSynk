@@ -14,6 +14,8 @@ required_files=(
   scripts/lint_intents.sh
   scripts/validate_issues.py
   scripts/export_graph.py
+  scripts/sync_issues.py
+  .env.example
   intents/INT-2025-0001.yaml
   data/outbox/issues_intents.json
 )
@@ -30,5 +32,6 @@ done
 scripts/lint_intents.sh
 scripts/validate_issues.py
 scripts/export_graph.py --output data/outbox/issues_intents.json
+scripts/sync_issues.py > /dev/null
 
 echo "[PASS] Documentation baseline + linting verified."

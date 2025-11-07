@@ -27,3 +27,8 @@
 ## Issue & Intent Export
 - Script [scripts/export_graph.py](../scripts/export_graph.py) emits `data/outbox/issues_intents.json`, unifying docs/issues.md and intents/* for GitHub Projects automation.
 - Export file feeds future bots that open/triage GitHub Issues, ensuring every card links back to documentation anchors.
+
+## Synchronization Workflow
+- [scripts/sync_issues.py](../scripts/sync_issues.py) ingests the export and builds GitHub-ready payloads. Dry-run mode (default) prints JSON preview; `--apply` pushes via API.
+- Configuration uses `.env.example` (`GITHUB_REPO`, `GITHUB_TOKEN`). Never commit actual secrets; CI workflows rely on repository secrets instead.
+- Each synchronized issue automatically embeds linked intents so GitHub cards stay in lockstep with `docs/issues.md` and `intents/*`.

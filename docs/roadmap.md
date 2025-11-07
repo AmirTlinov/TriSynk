@@ -5,6 +5,7 @@
 - Stand up Git Projects board (see [git-projects.md](git-projects.md)).
 - Configure CI workflow [.github/workflows/ci.yml](../.github/workflows/ci.yml) enforcing documentation + intent linting.
 - Generate issue/intent export via [scripts/export_graph.py](../scripts/export_graph.py) feeding `data/outbox/issues_intents.json` for automation.
+- Setup sync tooling via [scripts/sync_issues.py](../scripts/sync_issues.py) + `.env.example` to mirror roadmap/issues into GitHub Projects.
 
 ## Phase 1 – Core Definition (Weeks 46–50 2025)
 - Deliver semantic kernel prototype per [core-spec.md#1-semantic-kernel](core-spec.md#1-semantic-kernel).

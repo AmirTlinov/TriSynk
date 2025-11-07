@@ -10,3 +10,5 @@
 {"source":".github/workflows/ci.yml","summary":["CI pipeline running baseline checks, intent linting, and issue validation on push/PR."],"citation":"ci.yml"}
 {"source":"scripts/export_graph.py","summary":["Parses docs/issues.md and intents/*.yaml into a unified JSON graph for automation."],"citation":"export_graph.py"}
 {"source":"data/outbox/issues_intents.json","summary":["Current issue+intent export consumed by Git Projects automation."],"citation":"issues_intents.json"}
+{"source":"scripts/sync_issues.py","summary":["Reads exported graph and prepares/creates GitHub Issues with linked intents."],"citation":"sync_issues.py"}
+{"source":".env.example","summary":["Documents required env vars (GITHUB_REPO, GITHUB_TOKEN) for automation scripts."],"citation":".env.example"}
