@@ -1,6 +1,6 @@
 {
   "coverage": 100.0,
-  "perf_latency_pct": -54.666666666666664,
-  "duration_ms": 68,
+  "perf_latency_pct": -50.0,
+  "duration_ms": 75,
   "notes": "Coverage via llvm-cov on frontends/samples/sample.cpp"
 }

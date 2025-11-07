@@ -18,7 +18,8 @@ jobs:
         with:
           app-id: ${{ secrets.GH_APP_ID }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
-          installation-id: ${{ secrets.GH_APP_INSTALLATION_ID }}
+          owner: AmirTlinov
+          repositories: TriSynk
       - name: Install deps
         run: pip install pyyaml
       - name: Export issue graph
@@ -30,7 +31,7 @@ jobs:
         run: scripts/sync_issues.py --apply
       - name: Sync project board
         env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.SYNC_GH_TOKEN }}
           GITHUB_REPO: AmirTlinov/TriSynk
           PROJECT_ID: ${{ secrets.PROJECT_ID }}
           PROJECT_FIELD_STATUS_ID: ${{ secrets.PROJECT_FIELD_STATUS_ID }}
