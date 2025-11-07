@@ -25,7 +25,7 @@ Deliver flagship-grade TriSynk Core platform: deterministic semantics, multi-fro
 - `scripts/lint_intents.sh`, `scripts/validate_issues.py` – governance for intents/issues.
 - `scripts/export_graph.py`, `scripts/sync_issues.py` – keep GitHub Project in sync.
 - Secrets: store local tokens under `.agents/secrets/` (ignored) and reference them via env vars when running sync scripts; production workflows consume repository secret `SYNC_GH_TOKEN`.
-- `scripts/check_metrics.py` (coverage/perf), plus domain-specific tooling under `scripts/` or `.agents/tools/`.
+- `scripts/check_metrics.py` (coverage/perf) и `scripts/test_frontends.py` (валидирует JSON прототипов), плюс специализированные инструменты под `scripts/` или `.agents/tools/`.
 
 ## Documentation & Specs
 - Vision/strategy: `docs/vision.md`, `docs/architecture.md`, `docs/roadmap.md`, `docs/frontends.md`.

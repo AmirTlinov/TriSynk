@@ -9,12 +9,12 @@ TriSynk frontends translate language-specific syntax (Rust/C++/Python/TypeScript
   1. Parse via `rustc` driver in incremental mode.
   2. Lower HIR → MIR → `clmr` using ownership/effect annotations from attributes.
   3. Emit ABI manifest describing layout, capabilities, and effect sets.
-- **Prototype:** `frontends/trisynk-rs/frontend.py` parses sample Rust files and emits JSON approximating `clmr` IR; smoke test triggered via `frontends/tests/run_smoke.sh`.
+- **Prototype:** `frontends/trisynk-rs/frontend.py` parses sample Rust files and emits JSON approximating `clmr` IR; tests run via `frontends/tests/run_smoke.sh` and `scripts/test_frontends.py`.
 - **Key Contracts:**
   - Lifetimes map to TriSynk borrow regions; unsafe blocks rejected unless annotated with capability tokens.
   - Traits compile to capability manifests referencing [`docs/core-spec.md#2-type-system`](core-spec.md#2-type-system).
 
-- **Prototype:** `frontends/trisynk-cpp/frontend.py` inspects AST-like patterns and outputs ABI manifests referencing `trisynk_fastcall`.
+- **Prototype:** `frontends/trisynk-cpp/frontend.py` inspects AST-like patterns and outputs ABI manifests referencing `trisynk_fastcall`; validated by the same smoke/tests pipeline.
 ## 3. `trisynk-cpp` Frontend
 - **Scope:** C++20 core subset without UB-prone constructs (no raw pointer arithmetic without capability wrappers).
 - **Pipeline:**

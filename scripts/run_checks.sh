@@ -16,6 +16,7 @@ required_files=(
   scripts/export_graph.py
   scripts/sync_issues.py
   scripts/measure_metrics.sh
+  scripts/test_frontends.py
   scripts/check_metrics.py
   .env.example
   AGENTS.md
@@ -56,6 +57,7 @@ scripts/validate_issues.py
 scripts/export_graph.py --output data/outbox/issues_intents.json
 scripts/sync_issues.py > /dev/null
 scripts/measure_metrics.sh
+scripts/test_frontends.py
 scripts/check_metrics.py
 
 echo "[PASS] Documentation baseline + linting verified."

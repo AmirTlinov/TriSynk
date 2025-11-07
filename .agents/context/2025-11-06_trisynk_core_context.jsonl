@@ -23,3 +23,4 @@
 {"source":"scripts/measure_metrics.sh","summary":["Executes frontend smoke tests and regenerates reports/metrics.json for CI thresholds."],"citation":"measure-metrics"}
 {"source":".agents/secrets/SYNC_GH_TOKEN","summary":["Locally generated token enabling sync scripts to run --apply in mock mode."],"citation":"SYNC_GH_TOKEN"}
 {"source":"data/outbox/github_sync_payload.json","summary":["Latest payload produced by sync_issues.py --apply --repo local, ready for GitHub ingestion."],"citation":"github_sync_payload.json"}
+{"source":"scripts/test_frontends.py","summary":["Runs trisynk-rs/cpp prototypes and validates emitted JSON before CI."],"citation":"test_frontends.py"}

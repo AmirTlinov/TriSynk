@@ -1,6 +1,6 @@
 {
   "coverage": 90.0,
-  "perf_latency_pct": -70.39999999999999,
-  "duration_ms": 74,
+  "perf_latency_pct": -72.39999999999999,
+  "duration_ms": 69,
   "notes": "Derived from frontends/tests/run_smoke.sh"
 }
