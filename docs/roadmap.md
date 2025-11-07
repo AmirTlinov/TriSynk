@@ -3,6 +3,7 @@
 ## Phase 0 – Repository Bootstrap (Week 45 2025)
 - Finalize vision, spec, architecture (see [docs](./)).
 - Stand up Git Projects board (see [git-projects.md](git-projects.md)).
+- Configure CI workflow [.github/workflows/ci.yml](../.github/workflows/ci.yml) enforcing documentation + intent linting.
 
 ## Phase 1 – Core Definition (Weeks 46–50 2025)
 - Deliver semantic kernel prototype per [core-spec.md#1-semantic-kernel](core-spec.md#1-semantic-kernel).

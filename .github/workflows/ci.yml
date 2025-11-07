@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Baseline checks
+        run: scripts/run_checks.sh
+      - name: Intent lint
+        run: scripts/lint_intents.sh
+      - name: Issue validation
+        run: scripts/validate_issues.py

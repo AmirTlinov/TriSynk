@@ -11,6 +11,8 @@ required_files=(
   docs/git-projects.md
   .agents/context/2025-11-06_trisynk_core_context.jsonl
   .agents/tools/intent_schema.py
+  scripts/lint_intents.sh
+  scripts/validate_issues.py
   intents/INT-2025-0001.yaml
 )
 
@@ -22,4 +24,8 @@ for f in "${required_files[@]}"; do
   echo "[OK] $f"
 done
 
-echo "[PASS] Documentation baseline verified."
+
+scripts/lint_intents.sh
+scripts/validate_issues.py
+
+echo "[PASS] Documentation baseline + linting verified."

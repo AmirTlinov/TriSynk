@@ -19,3 +19,7 @@
 ## Governance
 - Board steward ensures backlog stays ≤2 phases ahead of roadmap.
 - Security reviews cannot be bypassed; cards without capability manifests are rejected.
+
+## CI Integration
+- Workflow [.github/workflows/ci.yml](../.github/workflows/ci.yml) blocks merges unless documentation, intent, and issue linting pass.
+- Status checks surface coverage/perf metrics collected by future steps referenced in [roadmap.md](roadmap.md).
