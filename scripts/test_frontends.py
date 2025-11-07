@@ -8,8 +8,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-RS = ROOT / "frontends" / "samples" / "sample.rs"
-CPP = ROOT / "frontends" / "samples" / "sample.cpp"
+RS_SAMPLES = sorted((ROOT / "frontends" / "samples").glob("*.rs"))
+CPP_SAMPLES = sorted((ROOT / "frontends" / "samples").glob("*.cpp"))
 RS_FRONTEND = ROOT / "frontends" / "trisynk-rs" / "frontend.py"
 CPP_FRONTEND = ROOT / "frontends" / "trisynk-cpp" / "frontend.py"
 SCHEMA = json.loads((ROOT / "schema" / "frontend_ir.schema.json").read_text(encoding="utf-8"))
@@ -43,13 +43,16 @@ def validate(payload: dict) -> None:
 
 
 def main() -> int:
-    outputs = [
-        run([sys.executable, str(RS_FRONTEND), str(RS)]),
-        run([sys.executable, str(CPP_FRONTEND), str(CPP)]),
-    ]
+    outputs = []
+    for sample in RS_SAMPLES:
+        blob = run([sys.executable, str(RS_FRONTEND), str(sample)])
+        outputs.append(blob)
+    for sample in CPP_SAMPLES:
+        blob = run([sys.executable, str(CPP_FRONTEND), str(sample)])
+        outputs.append(blob)
     for blob in outputs:
         validate(json.loads(blob))
-    print("[test-frontends] ok")
+    print(f"[test-frontends] ok ({len(outputs)} artifacts)")
     return 0
 
 

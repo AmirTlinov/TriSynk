@@ -27,3 +27,4 @@
 {"source":"schema/frontend_ir.schema.json","summary":["JSON Schema describing frontend IR payload contract for trisynk-rs/cpp prototypes."],"citation":"frontend_ir.schema"}
 {"source":"scripts/update_metrics_history.py","summary":["Appends reports/metrics.json entries to reports/history/metrics_history.jsonl for CI traceability."],"citation":"metrics_history"}
 {"source":"reports/history/metrics_history.jsonl","summary":["Append-only log of coverage/perf metrics produced by run_checks."],"citation":"metrics_history_log"}
+{"source":"actions/run/19154696477","summary":["sync-issues workflow executed via SYNC_GH_TOKEN and succeeded on 2025-11-07."],"citation":"sync-run-19154696477"}
