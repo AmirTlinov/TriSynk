@@ -34,4 +34,4 @@
 - Configuration uses `.env.example` (`GITHUB_REPO`, `GITHUB_TOKEN`). Never commit actual secrets; CI workflows rely on repository secrets instead.
 - Workflow [.github/workflows/sync-issues.yml](../.github/workflows/sync-issues.yml) runs nightly + on demand using the `SYNC_GH_TOKEN` secret to mirror docs/issues into GitHub Issues/Projects.
 - Local development stores the token in `.agents/secrets/SYNC_GH_TOKEN` (ignored by git) so scripts can run `--apply` in mock mode without exposing credentials; production deployments must set the repository secret `SYNC_GH_TOKEN`.
-- Each synchronized issue automatically embeds linked intents so GitHub cards stay in lockstep with `docs/issues.md` and `intents/*`.
+- Each synchronized issue automatically embeds linked intents so GitHub cards stay in lockstep with `docs/issues.md` and `intents/*`, and issues are closed/reopened according to `meta.state` in intents.

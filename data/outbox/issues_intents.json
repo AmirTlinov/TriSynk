@@ -145,6 +145,7 @@
         "core-spec.md#1-semantic-kernel",
         "intent-dsl.md#3-schema"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Prototype Rust frontend lowering to clmr IR.",
         "success_metrics": {
@@ -187,6 +188,7 @@
         "core-spec.md#1-semantic-kernel",
         "issues.md#iss-001"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Formalize affine ownership & borrow checker semantics inside clmr.",
         "success_metrics": {
@@ -225,6 +227,7 @@
         "core-spec.md#2-type-system",
         "issues.md#iss-002"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Implement capability graph & effect contracts with verification pass.",
         "success_metrics": {
@@ -267,6 +270,7 @@
         "core-spec.md#4-abi--interoperability",
         "frontends.md#3-trisynk-cpp-frontend"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Build trisynk-cpp importer via Clang AST + ABI validation suite.",
         "success_metrics": {
@@ -310,6 +314,7 @@
         "architecture.md#5-security--safety",
         "issues.md#iss-005"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Deliver deterministic HPy translator and sandbox harness.",
         "success_metrics": {
@@ -353,6 +358,7 @@
         "core-spec.md#4-abi--interoperability",
         "issues.md#iss-006"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Integrate QuickJS/V8 translator with capability-safe TypeScript binding compiler.",
         "success_metrics": {
@@ -398,6 +404,7 @@
         "core-spec.md#5-runtime-contracts",
         "issues.md#iss-007"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Implement deterministic scheduler + capability allocator with telemetry hooks.",
         "success_metrics": {
@@ -442,6 +449,7 @@
         "architecture.md#3-module-breakdown",
         "issues.md#iss-008"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Deliver HPy & V8 interop bridges with capability enforcement and diagnostics.",
         "success_metrics": {
@@ -477,6 +485,7 @@
         "owner": "agent://builder-theta",
         "issue": "ISS-009",
         "roadmap": "Phase-4",
+        "state": "closed",
         "docs": [
           "intent-dsl.md#3-schema",
           "issues.md#iss-009"
@@ -487,6 +496,7 @@
         "intent-dsl.md#3-schema",
         "issues.md#iss-009"
       ],
+      "state": "closed",
       "requirements": {
         "goal": "Extend Intent DSL tooling (schema, editors, validators) for full agent automation.",
         "success_metrics": {
@@ -527,6 +537,7 @@
         "architecture.md#4-data-flows",
         "issues.md#iss-010"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Build autotuning/performance telemetry platform integrated with runtime metrics.",
         "success_metrics": {
@@ -570,6 +581,7 @@
         "architecture.md#5-security--safety",
         "issues.md#iss-011"
       ],
+      "state": "open",
       "requirements": {
         "goal": "Implement capability policy engine, attestation workflow, and automated audits.",
         "success_metrics": {

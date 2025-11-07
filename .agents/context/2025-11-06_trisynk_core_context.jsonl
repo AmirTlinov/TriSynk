@@ -28,3 +28,6 @@
 {"source":"scripts/update_metrics_history.py","summary":["Appends reports/metrics.json entries to reports/history/metrics_history.jsonl for CI traceability."],"citation":"metrics_history"}
 {"source":"reports/history/metrics_history.jsonl","summary":["Append-only log of coverage/perf metrics produced by run_checks."],"citation":"metrics_history_log"}
 {"source":"actions/run/19154696477","summary":["sync-issues workflow executed via SYNC_GH_TOKEN and succeeded on 2025-11-07."],"citation":"sync-run-19154696477"}
+{"source":"docs/frontends-lowering.md","summary":["Outlines staged integration of rustc/Clang lowering with toolchain tests and instrumentation."],"citation":"frontends-lowering.md"}
+{"source":"frontends/tests/run_toolchain.sh","summary":["Invokes rustc/clang++ on sample fixtures to prime real lowering pipeline."],"citation":"toolchain-test"}
+{"source":"scripts/measure_metrics.sh","summary":["Now compiles sample.cpp with clang coverage + llvm-cov for real metrics."],"citation":"measure-metrics"}

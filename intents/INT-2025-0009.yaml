@@ -4,6 +4,7 @@ meta:
   owner: agent://builder-theta
   issue: ISS-009
   roadmap: Phase-4
+  state: closed
   docs:
     - intent-dsl.md#3-schema
     - issues.md#iss-009

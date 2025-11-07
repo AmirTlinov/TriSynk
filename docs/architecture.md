@@ -37,6 +37,7 @@
 - Semantics: [Core Specification](core-spec.md)
 - Intent: [Intent DSL](intent-dsl.md)
 - Frontends: [Frontends & ABI](frontends.md)
+- Lowering Plan: [Frontends Lowering](frontends-lowering.md)
 - Operations: [AGENTS](../AGENTS.md)
 - Timeline: [Roadmap](roadmap.md)
 - Execution: [Issues](issues.md)

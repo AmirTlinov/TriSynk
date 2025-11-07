@@ -13,6 +13,8 @@ __pycache__/
 
 # Automation artifacts
 data/outbox/*.log
+data/outbox/coverage/
+data/outbox/toolchain/
 
 # Secrets
 .agents/secrets/

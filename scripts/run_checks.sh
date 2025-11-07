@@ -26,6 +26,7 @@ required_files=(
   frontends/trisynk-rs/frontend.py
   frontends/trisynk-cpp/frontend.py
   frontends/tests/run_smoke.sh
+  frontends/tests/run_toolchain.sh
   frontends/samples/sample.rs
   frontends/samples/sample.cpp
   intents/INT-2025-0001.yaml
@@ -59,6 +60,7 @@ scripts/export_graph.py --output data/outbox/issues_intents.json
 scripts/sync_issues.py > /dev/null
 scripts/measure_metrics.sh
 scripts/test_frontends.py
+frontends/tests/run_toolchain.sh
 scripts/update_metrics_history.py
 scripts/check_metrics.py
 

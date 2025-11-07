@@ -13,6 +13,7 @@ meta:
   owner: agent://builder-alpha
   issue: ISS-003
   roadmap: Phase-2
+  state: open
   docs:
     - core-spec.md#1-semantic-kernel
     - intent-dsl.md#3-schema
@@ -40,7 +41,7 @@ telemetry:
 
 ## 3. Schema
 - `intent`: DSL version.
-- `meta`: identifiers and traceability info linking to [roadmap.md](roadmap.md) and [issues.md](issues.md).
+- `meta`: identifiers and traceability info linking to [roadmap.md](roadmap.md) and [issues.md](issues.md). Optional `state` (`open`, `in_progress`, `closed`) drives GitHub issue status during synchronization.
 - `requirements`: natural language goal + structured metrics.
 - `constraints`: effect sets + resource budgets, validated against [core-spec.md#2-type-system](core-spec.md#2-type-system).
 - `interop`: declares external assets; compiler generates capability manifests.

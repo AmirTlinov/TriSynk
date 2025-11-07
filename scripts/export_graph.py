@@ -50,12 +50,14 @@ def parse_intents() -> list[dict]:
     intents: list[dict] = []
     for path in sorted(INTENT_DIR.glob("*.yaml")):
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
+        meta = data.get("meta", {})
         intents.append(
             {
                 "file": str(path),
-                "meta": data.get("meta", {}),
-                "issue": data.get("meta", {}).get("issue"),
-                "docs": data.get("meta", {}).get("docs", []),
+                "meta": meta,
+                "issue": meta.get("issue"),
+                "docs": meta.get("docs", []),
+                "state": meta.get("state", "open"),
                 "requirements": data.get("requirements", {}),
                 "constraints": data.get("constraints", {}),
                 "interop": data.get("interop", {}),

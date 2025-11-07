@@ -41,3 +41,4 @@ TriSynk frontends translate language-specific syntax (Rust/C++/Python/TypeScript
 - [Core Specification](core-spec.md)
 - [Issue Graph](issues.md)
 - [Intent DSL](intent-dsl.md)
+- [Lowering Plan](frontends-lowering.md)

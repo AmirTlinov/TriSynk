@@ -31,12 +31,16 @@ def build_payloads(graph: dict[str, Any]) -> list[dict[str, Any]]:
     for issue in graph.get("issues", []):
         body_parts = [issue["body"]]
         linked = intents_by_issue.get(issue["id"], [])
+        state = "open"
         if linked:
             lines = ["### Linked Intents"]
             for intent in linked:
                 link = intent["file"]
                 goal = intent.get("requirements", {}).get("goal", "")
                 lines.append(f"- `{intent['meta'].get('id', 'INT-???')}` ({link}): {goal}")
+                candidate_state = intent.get("state", "open")
+                if candidate_state != "open":
+                    state = candidate_state
             body_parts.append("\n".join(lines))
         body = "\n\n".join(body_parts)
         payloads.append(
@@ -47,6 +51,7 @@ def build_payloads(graph: dict[str, Any]) -> list[dict[str, Any]]:
                 "tri_id": issue["id"],
                 "dependencies": issue.get("dependencies", []),
                 "references": issue.get("references", []),
+                "state": state,
             }
         )
     return payloads
@@ -72,6 +77,26 @@ def github_request(method: str, url: str, token: str, payload: dict[str, Any] | 
         raise RuntimeError(f"GitHub API error {exc.code}: {text}") from exc
 
 
+def fetch_existing(repo: str | None, token: str) -> dict[str, dict[str, Any]]:
+    if not repo:
+        return {}
+    issues: dict[str, dict[str, Any]] = {}
+    page = 1
+    while True:
+        url = f"{GITHUB_API}/repos/{repo}/issues?state=all&labels=tri-sync&per_page=100&page={page}"
+        batch = github_request("GET", url, token)
+        if not batch:
+            break
+        for issue in batch:
+            title = issue.get("title", "")
+            tri_id = title.split(":", 1)[0]
+            issues[tri_id] = issue
+        page += 1
+        if len(batch) < 100:
+            break
+    return issues
+
+
 def push_payloads(payloads: list[dict[str, Any]], repo: str | None, token: str, dry_run: bool, mock_output: Path | None) -> None:
     if dry_run:
         print(json.dumps({"preview": payloads}, indent=2, ensure_ascii=False))
@@ -82,8 +107,32 @@ def push_payloads(payloads: list[dict[str, Any]], repo: str | None, token: str, 
         target.write_text(json.dumps(payloads, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"[sync-issues] Mock sync wrote {target}")
         return
+
+    existing = fetch_existing(repo, token)
     for payload in payloads:
+        tri_id = payload["tri_id"]
         title = payload["title"]
+        target_state = payload.get("state", "open")
+        issue = existing.get(tri_id)
+        if issue:
+            updates: dict[str, Any] = {}
+            if issue.get("title") != title:
+                updates["title"] = title
+            if issue.get("body") != payload["body"]:
+                updates["body"] = payload["body"]
+            desired_state = "closed" if target_state == "closed" else "open"
+            if issue.get("state") != desired_state:
+                updates["state"] = desired_state
+            if updates:
+                print(f"[sync-issues] Updating {tri_id} -> {updates.keys()}")
+                github_request(
+                    "PATCH",
+                    f"{GITHUB_API}/repos/{repo}/issues/{issue['number']}",
+                    token,
+                    updates,
+                )
+            continue
+
         url = f"{GITHUB_API}/repos/{repo}/issues"
         body = {
             "title": title,
@@ -91,7 +140,14 @@ def push_payloads(payloads: list[dict[str, Any]], repo: str | None, token: str, 
             "labels": payload["labels"],
         }
         print(f"[sync-issues] Creating issue for {title}")
-        github_request("POST", url, token, body)
+        created = github_request("POST", url, token, body)
+        if payload.get("state") == "closed":
+            github_request(
+                "PATCH",
+                f"{GITHUB_API}/repos/{repo}/issues/{created['number']}",
+                token,
+                {"state": "closed"},
+            )
 
 
 def main() -> int:
