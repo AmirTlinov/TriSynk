@@ -17,3 +17,7 @@
 {"source":"scripts/check_metrics.py","summary":["Guards coverage/performance targets using reports/metrics.json."],"citation":"check_metrics.py"}
 {"source":"reports/metrics.json","summary":["Current placeholder coverage/perf metrics (>=85%, <=5% delta) for CI gating."],"citation":"metrics.json"}
 {"source":".github/workflows/sync-issues.yml","summary":["Nightly/dispatch workflow pushing docs/issues into GitHub using sync_issues.py."],"citation":"sync-issues.yml"}
+{"source":"frontends/trisynk-rs/frontend.py","summary":["Prototype Rust frontend converting sample code into clmr-like JSON."],"citation":"trisynk-rs"}
+{"source":"frontends/trisynk-cpp/frontend.py","summary":["Prototype C++ frontend emitting ABI metadata and function lists."],"citation":"trisynk-cpp"}
+{"source":"frontends/tests/run_smoke.sh","summary":["Runs both frontends against sample sources to ensure JSON output."],"citation":"frontend-smoke"}
+{"source":"scripts/measure_metrics.sh","summary":["Executes frontend smoke tests and regenerates reports/metrics.json for CI thresholds."],"citation":"measure-metrics"}

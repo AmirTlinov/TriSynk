@@ -10,3 +10,6 @@ __pycache__/
 # Agents tooling
 .agents/context/*.tmp
 .agents/tools/__pycache__/
+
+# Automation artifacts
+data/outbox/*.log

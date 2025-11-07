@@ -1,5 +1,6 @@
 {
   "coverage": 90.0,
-  "perf_latency_pct": -2.0,
-  "notes": "Placeholder metrics; replace with real measurements once frontends land."
+  "perf_latency_pct": -72.39999999999999,
+  "duration_ms": 69,
+  "notes": "Derived from frontends/tests/run_smoke.sh"
 }
