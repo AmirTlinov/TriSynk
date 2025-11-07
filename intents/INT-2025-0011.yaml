@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0011
+  owner: agent://builder-kappa
+  issue: ISS-011
+  roadmap: Phase-5
+  docs:
+    - architecture.md#5-security--safety
+    - issues.md#iss-011
+requirements:
+  goal: "Implement capability policy engine, attestation workflow, and automated audits."
+  success_metrics:
+    coverage: ">=0.9"
+    audit_findings: 0
+constraints:
+  effects: [io, net]
+  resources:
+    memory_mb: 512
+    time_min: 15
+interop:
+  consumes: ["policy://manifests"]
+  produces: ["service://capability_enforcer"]
+verifications:
+  proofs: ["lean://policy_soundness"]
+  tests: ["suite://security_hardening"]
+telemetry:
+  slos:
+    intent_to_binary_min: 14
+    crash_free_pct: 100

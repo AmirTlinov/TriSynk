@@ -1,0 +1,25 @@
+name: sync-issues
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: github.repository == 'AmirTlinov/TriSynk'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Export issue graph
+        run: scripts/export_graph.py --output data/outbox/issues_intents.json
+      - name: Push issues to GitHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_GH_TOKEN }}
+          GITHUB_REPO: AmirTlinov/TriSynk
+        run: scripts/sync_issues.py --apply

@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0010
+  owner: agent://builder-iota
+  issue: ISS-010
+  roadmap: Phase-4
+  docs:
+    - architecture.md#4-data-flows
+    - issues.md#iss-010
+requirements:
+  goal: "Build autotuning/performance telemetry platform integrated with runtime metrics."
+  success_metrics:
+    coverage: ">=0.9"
+    perf_latency_pct: "<=5"
+constraints:
+  effects: [io, gpu]
+  resources:
+    memory_mb: 2048
+    time_min: 25
+interop:
+  consumes: ["runtime://telemetry"]
+  produces: ["service://autotuner"]
+verifications:
+  proofs: ["smt://telemetry_integrity"]
+  tests: ["suite://autotune_regression"]
+telemetry:
+  slos:
+    intent_to_binary_min: 18
+    crash_free_pct: 99.9

@@ -13,7 +13,7 @@
 - Produce baseline `.agents/context` entries for each subsystem.
 
 ## Phase 2 – Frontend & IR Tooling (Weeks 51–2 2026)
-- Implement Rust & C++ frontends (issues [ISS-003](issues.md#iss-003) / [ISS-004](issues.md#iss-004)).
+- Implement Rust & C++ frontends per [frontends.md](frontends.md) (issues [ISS-003](issues.md#iss-003) / [ISS-004](issues.md#iss-004)).
 - Add Python/TypeScript translators (issues [ISS-005](issues.md#iss-005) / [ISS-006](issues.md#iss-006)).
 - Build `clmr` optimization passes per [architecture.md#2-agent-loop](architecture.md#2-agent-loop).
 
@@ -31,6 +31,6 @@
 - Freeze v1 ABI, publish SDKs, document upgrade path.
 
 ## Deliverable Exit Criteria
-- ≥85% coverage across core modules.
+- ≥85% coverage across core modules (tracked via [scripts/check_metrics.py](../scripts/check_metrics.py)).
 - All roadmap milestones linked to closed issues with references to relevant docs.
-- Telemetry dashboards prove intent→binary SLA <5 minutes on reference hardware.
+- Telemetry dashboards prove intent→binary SLA <5 minutes on reference hardware and perf deltas within ±5% stored in `reports/metrics.json`.

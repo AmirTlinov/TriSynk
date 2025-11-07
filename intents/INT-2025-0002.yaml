@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0002
+  owner: agent://builder-beta
+  issue: ISS-001
+  roadmap: Phase-1
+  docs:
+    - core-spec.md#1-semantic-kernel
+    - issues.md#iss-001
+requirements:
+  goal: "Formalize affine ownership & borrow checker semantics inside clmr."
+  success_metrics:
+    coverage: ">=0.95"
+    proof_obligations: "complete"
+constraints:
+  effects: []
+  resources:
+    memory_mb: 256
+    time_min: 10
+interop:
+  consumes: []
+  produces: ["abi://trisynk_fastcall"]
+verifications:
+  proofs: ["lean://affine_soundness"]
+  tests: ["suite://ownership_regressions"]
+telemetry:
+  slos:
+    intent_to_binary_min: 8
+    crash_free_pct: 100

@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0006
+  owner: agent://builder-epsilon
+  issue: ISS-006
+  roadmap: Phase-2
+  docs:
+    - core-spec.md#4-abi--interoperability
+    - issues.md#iss-006
+requirements:
+  goal: "Integrate QuickJS/V8 translator with capability-safe TypeScript binding compiler."
+  success_metrics:
+    coverage: ">=0.9"
+    latency_ms: 35
+constraints:
+  effects: [io, net, dyn]
+  resources:
+    memory_mb: 1024
+    time_min: 25
+interop:
+  consumes: ["npm://typescript", "vm://quickjs"]
+  produces: ["capsule://trisynk_js"]
+verifications:
+  proofs: ["smt://promise_bridge"]
+  tests: ["suite://ts_translator"]
+telemetry:
+  slos:
+    intent_to_binary_min: 18
+    crash_free_pct: 99.5

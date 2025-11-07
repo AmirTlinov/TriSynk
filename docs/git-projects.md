@@ -31,4 +31,5 @@
 ## Synchronization Workflow
 - [scripts/sync_issues.py](../scripts/sync_issues.py) ingests the export and builds GitHub-ready payloads. Dry-run mode (default) prints JSON preview; `--apply` pushes via API.
 - Configuration uses `.env.example` (`GITHUB_REPO`, `GITHUB_TOKEN`). Never commit actual secrets; CI workflows rely on repository secrets instead.
+- Workflow [.github/workflows/sync-issues.yml](../.github/workflows/sync-issues.yml) runs nightly + on demand using the `SYNC_GH_TOKEN` secret to mirror docs/issues into GitHub Issues/Projects.
 - Each synchronized issue automatically embeds linked intents so GitHub cards stay in lockstep with `docs/issues.md` and `intents/*`.

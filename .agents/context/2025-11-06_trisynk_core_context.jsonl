@@ -12,3 +12,8 @@
 {"source":"data/outbox/issues_intents.json","summary":["Current issue+intent export consumed by Git Projects automation."],"citation":"issues_intents.json"}
 {"source":"scripts/sync_issues.py","summary":["Reads exported graph and prepares/creates GitHub Issues with linked intents."],"citation":"sync_issues.py"}
 {"source":".env.example","summary":["Documents required env vars (GITHUB_REPO, GITHUB_TOKEN) for automation scripts."],"citation":".env.example"}
+{"source":"AGENTS.md","summary":["Defines operating charter for TriSynk agents: mission, workflow, tools, prohibitions."],"citation":"AGENTS.md"}
+{"source":"docs/frontends.md","summary":["Outlines trisynk-rs/cpp prototypes, shared ABI contracts, and testing roadmap."],"citation":"frontends.md"}
+{"source":"scripts/check_metrics.py","summary":["Guards coverage/performance targets using reports/metrics.json."],"citation":"check_metrics.py"}
+{"source":"reports/metrics.json","summary":["Current placeholder coverage/perf metrics (>=85%, <=5% delta) for CI gating."],"citation":"metrics.json"}
+{"source":".github/workflows/sync-issues.yml","summary":["Nightly/dispatch workflow pushing docs/issues into GitHub using sync_issues.py."],"citation":"sync-issues.yml"}

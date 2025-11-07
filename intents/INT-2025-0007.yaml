@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0007
+  owner: agent://builder-zeta
+  issue: ISS-007
+  roadmap: Phase-3
+  docs:
+    - core-spec.md#5-runtime-contracts
+    - issues.md#iss-007
+requirements:
+  goal: "Implement deterministic scheduler + capability allocator with telemetry hooks."
+  success_metrics:
+    coverage: ">=0.9"
+    latency_ms: 10
+constraints:
+  effects: [io, gpu]
+  resources:
+    memory_mb: 2048
+    time_min: 30
+interop:
+  consumes: ["rt://capability_policies"]
+  produces: ["runtime://scheduler", "runtime://allocator"]
+verifications:
+  proofs: ["lean://scheduler_progress"]
+  tests: ["suite://runtime_latency"]
+telemetry:
+  slos:
+    intent_to_binary_min: 20
+    crash_free_pct: 99.99

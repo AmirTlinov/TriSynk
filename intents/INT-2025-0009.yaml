@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0009
+  owner: agent://builder-theta
+  issue: ISS-009
+  roadmap: Phase-4
+  docs:
+    - intent-dsl.md#3-schema
+    - issues.md#iss-009
+requirements:
+  goal: "Extend Intent DSL tooling (schema, editors, validators) for full agent automation."
+  success_metrics:
+    coverage: ">=0.95"
+    latency_ms: 15
+constraints:
+  effects: []
+  resources:
+    memory_mb: 128
+    time_min: 10
+interop:
+  consumes: ["schema://intent"]
+  produces: ["tool://intent_validator"]
+verifications:
+  proofs: ["smt://intent_schema"]
+  tests: ["suite://intent_tooling"]
+telemetry:
+  slos:
+    intent_to_binary_min: 7
+    crash_free_pct: 100

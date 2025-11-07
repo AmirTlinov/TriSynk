@@ -1,7 +1,7 @@
 # Architecture Blueprint
 
 ## 1. Layer Stack
-1. **Intent Layer:** DSL + spec repository feeding agent planners (see [Intent DSL](intent-dsl.md)).
+1. **Intent Layer:** DSL + spec repository feeding agent planners (see [Intent DSL](intent-dsl.md) and [AGENTS](../AGENTS.md)).
 2. **Synthesis Layer:** Multi-frontend compilers (Rust/Python/C++/TS) desugaring into `clmr` IR with embedded contracts.
 3. **Verification Layer:** Ownership/effect/resource passes + SMT/Lean proofs.
 4. **Optimization Layer:** Profile-guided transforms, autotuners, layout synthesis.
@@ -15,7 +15,7 @@
 5. Successful builds pass through autotuners + telemetry hooks, then get packaged with ABI manifests.
 
 ## 3. Module Breakdown
-- **Frontends:** `trisynk-rs`, `trisynk-cpp`, `trisynk-py`, `trisynk-ts`.
+- **Frontends:** `trisynk-rs`, `trisynk-cpp`, `trisynk-py`, `trisynk-ts` (see [Frontends & ABI](frontends.md)).
 - **IR Tooling:** `clmr-opt`, `clmr-lower`, `clmr-viz`.
 - **Runtime Services:** `scheduler`, `memory`, `interop-rust`, `interop-cpp`, `interop-hpy`, `interop-js`.
 - **Governance:** policy engine enforcing capability budgets defined in `docs/core-spec.md#4-abi--interoperability`.
@@ -23,7 +23,8 @@
 ## 4. Data Flows
 - Telemetry events flow from runtime → `agents-observer` → feedback into intent planner.
 - Coverage + proof artifacts stored per build and indexed by issue IDs.
-- Git Projects board consumes roadmap milestones to auto-populate lanes, using `data/outbox/issues_intents.json` exported by [scripts/export_graph.py](../scripts/export_graph.py) and synced through [scripts/sync_issues.py](../scripts/sync_issues.py).
+- Git Projects board consumes roadmap milestones to auto-populate lanes, using `data/outbox/issues_intents.json` exported by [scripts/export_graph.py](../scripts/export_graph.py) and synced through [scripts/sync_issues.py](../scripts/sync_issues.py) / [.github/workflows/sync-issues.yml](../.github/workflows/sync-issues.yml).
+- Coverage/perf metrics flow into `reports/metrics.json` guarded by [scripts/check_metrics.py](../scripts/check_metrics.py) and surfaced in CI.
 
 ## 5. Security & Safety
 - Strict compartmentalization for dynamic languages; only deterministic projections cross boundaries.
@@ -34,6 +35,8 @@
 - Requirements: [Vision](vision.md)
 - Semantics: [Core Specification](core-spec.md)
 - Intent: [Intent DSL](intent-dsl.md)
+- Frontends: [Frontends & ABI](frontends.md)
+- Operations: [AGENTS](../AGENTS.md)
 - Timeline: [Roadmap](roadmap.md)
 - Execution: [Issues](issues.md)
 - Governance: [Git Projects Model](git-projects.md)

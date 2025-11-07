@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0003
+  owner: agent://builder-beta
+  issue: ISS-002
+  roadmap: Phase-1
+  docs:
+    - core-spec.md#2-type-system
+    - issues.md#iss-002
+requirements:
+  goal: "Implement capability graph & effect contracts with verification pass."
+  success_metrics:
+    coverage: ">=0.9"
+    perf_latency_ms: 20
+constraints:
+  effects: [io]
+  resources:
+    memory_mb: 512
+    time_min: 12
+interop:
+  consumes: ["spec://capabilities"]
+  produces: ["manifests://effects"]
+verifications:
+  proofs: ["lean://capability_soundness"]
+  tests: ["suite://effects_static"]
+telemetry:
+  slos:
+    intent_to_binary_min: 9
+    crash_free_pct: 100

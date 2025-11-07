@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0005
+  owner: agent://builder-delta
+  issue: ISS-005
+  roadmap: Phase-2
+  docs:
+    - architecture.md#5-security--safety
+    - issues.md#iss-005
+requirements:
+  goal: "Deliver deterministic HPy translator and sandbox harness."
+  success_metrics:
+    coverage: ">=0.9"
+    latency_ms: 30
+constraints:
+  effects: [io, dyn]
+  resources:
+    memory_mb: 768
+    time_min: 20
+interop:
+  consumes: ["hpy://api"]
+  produces: ["capsule://trisynk_py"]
+verifications:
+  proofs: ["lean://dyn_compartment"]
+  tests: ["suite://hpy_bridge"]
+telemetry:
+  slos:
+    intent_to_binary_min: 15
+    crash_free_pct: 99.5

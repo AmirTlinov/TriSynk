@@ -11,12 +11,12 @@
 - **Dependencies:** None.
 
 ## ISS-003 – Rust Frontend Prototype
-- **Scope:** Parse Rust subset → `clmr` IR referencing [architecture.md#3-module-breakdown](architecture.md#3-module-breakdown).
+- **Scope:** Parse Rust subset → `clmr` IR referencing [architecture.md#3-module-breakdown](architecture.md#3-module-breakdown) and [frontends.md#2-trisynk-rs-frontend](frontends.md#2-trisynk-rs-frontend).
 - **Deliverables:** Frontend CLI, regression tests covering 95% grammar features.
 - **Dependencies:** [ISS-001](#iss-001).
 
 ## ISS-004 – C++ Frontend Prototype
-- **Scope:** Clang-based importer aligning with [core-spec.md#4-abi--interoperability](core-spec.md#4-abi--interoperability).
+- **Scope:** Clang-based importer aligning with [core-spec.md#4-abi--interoperability](core-spec.md#4-abi--interoperability) and [frontends.md#3-trisynk-cpp-frontend](frontends.md#3-trisynk-cpp-frontend).
 - **Deliverables:** Template instantiation strategy, ABI compliance suite.
 - **Dependencies:** [ISS-002](#iss-002).
 

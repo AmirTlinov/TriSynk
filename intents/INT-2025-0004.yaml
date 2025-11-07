@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0004
+  owner: agent://builder-gamma
+  issue: ISS-004
+  roadmap: Phase-2
+  docs:
+    - core-spec.md#4-abi--interoperability
+    - frontends.md#3-trisynk-cpp-frontend
+requirements:
+  goal: "Build trisynk-cpp importer via Clang AST + ABI validation suite."
+  success_metrics:
+    coverage: ">=0.9"
+    latency_ms: 40
+constraints:
+  effects: [io]
+  resources:
+    memory_mb: 1024
+    time_min: 15
+interop:
+  consumes: ["lib://clang"]
+  produces: ["abi://trisynk_fastcall", "manifest://cpp"]
+verifications:
+  proofs: ["smt://abi_structural"]
+  tests: ["suite://cpp_frontend"]
+telemetry:
+  slos:
+    intent_to_binary_min: 12
+    crash_free_pct: 99.9

@@ -1,0 +1,5 @@
+{
+  "coverage": 90.0,
+  "perf_latency_pct": -2.0,
+  "notes": "Placeholder metrics; replace with real measurements once frontends land."
+}

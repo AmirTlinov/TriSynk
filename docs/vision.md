@@ -34,6 +34,8 @@ TriSynk Core delivers a single formally specified programming substrate with mul
 - [Core Specification](core-spec.md)
 - [Architecture Blueprint](architecture.md)
 - [Intent DSL](intent-dsl.md)
+- [Frontends & ABI](frontends.md)
+- [AGENTS Charter](../AGENTS.md)
 - [Roadmap & Milestones](roadmap.md)
 - [Issue Graph](issues.md)
 - [Git Projects Operating Model](git-projects.md)
