@@ -13,7 +13,9 @@ required_files=(
   .agents/tools/intent_schema.py
   scripts/lint_intents.sh
   scripts/validate_issues.py
+  scripts/export_graph.py
   intents/INT-2025-0001.yaml
+  data/outbox/issues_intents.json
 )
 
 for f in "${required_files[@]}"; do
@@ -27,5 +29,6 @@ done
 
 scripts/lint_intents.sh
 scripts/validate_issues.py
+scripts/export_graph.py --output data/outbox/issues_intents.json
 
 echo "[PASS] Documentation baseline + linting verified."

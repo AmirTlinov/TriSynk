@@ -23,7 +23,7 @@
 ## 4. Data Flows
 - Telemetry events flow from runtime → `agents-observer` → feedback into intent planner.
 - Coverage + proof artifacts stored per build and indexed by issue IDs.
-- Git Projects board consumes roadmap milestones to auto-populate lanes.
+- Git Projects board consumes roadmap milestones to auto-populate lanes, using `data/outbox/issues_intents.json` exported by [scripts/export_graph.py](../scripts/export_graph.py).
 
 ## 5. Security & Safety
 - Strict compartmentalization for dynamic languages; only deterministic projections cross boundaries.

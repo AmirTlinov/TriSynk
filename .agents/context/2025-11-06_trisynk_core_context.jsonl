@@ -8,3 +8,5 @@
 {"source":"scripts/lint_intents.sh","summary":["Batch validator that enforces schema compliance for every intent YAML via .agents/tools/intent_schema.py."],"citation":"lint_intents.sh"}
 {"source":"scripts/validate_issues.py","summary":["Ensures each ISS section in docs/issues.md contains scope/deliverables/dependencies and anchors to documentation."],"citation":"validate_issues.py"}
 {"source":".github/workflows/ci.yml","summary":["CI pipeline running baseline checks, intent linting, and issue validation on push/PR."],"citation":"ci.yml"}
+{"source":"scripts/export_graph.py","summary":["Parses docs/issues.md and intents/*.yaml into a unified JSON graph for automation."],"citation":"export_graph.py"}
+{"source":"data/outbox/issues_intents.json","summary":["Current issue+intent export consumed by Git Projects automation."],"citation":"issues_intents.json"}

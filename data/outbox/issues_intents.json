@@ -1,0 +1,176 @@
+{
+  "issues": [
+    {
+      "id": "ISS-001",
+      "title": "Formalize Ownership & Borrow Checker",
+      "references": [
+        "core-spec.md#1-semantic-kernel"
+      ],
+      "dependencies": [
+        "ISS-002"
+      ],
+      "body": "## ISS-001 – Formalize Ownership & Borrow Checker\n- **Scope:** Implement affine ownership rules from [core-spec.md#1-semantic-kernel](core-spec.md#1-semantic-kernel).\n- **Deliverables:** SMT lemmas, compiler diagnostics catalog.\n- **Dependencies:** [ISS-002](#iss-002)."
+    },
+    {
+      "id": "ISS-002",
+      "title": "Capability Graph & Effect Contracts",
+      "references": [
+        "architecture.md#2-agent-loop",
+        "core-spec.md#2-type-system"
+      ],
+      "dependencies": [],
+      "body": "## ISS-002 – Capability Graph & Effect Contracts\n- **Scope:** Build capability registry per [core-spec.md#2-type-system](core-spec.md#2-type-system).\n- **Deliverables:** Contract schema + verification pass (see [architecture.md#2-agent-loop](architecture.md#2-agent-loop)).\n- **Dependencies:** None."
+    },
+    {
+      "id": "ISS-003",
+      "title": "Rust Frontend Prototype",
+      "references": [
+        "architecture.md#3-module-breakdown"
+      ],
+      "dependencies": [
+        "ISS-001"
+      ],
+      "body": "## ISS-003 – Rust Frontend Prototype\n- **Scope:** Parse Rust subset → `clmr` IR referencing [architecture.md#3-module-breakdown](architecture.md#3-module-breakdown).\n- **Deliverables:** Frontend CLI, regression tests covering 95% grammar features.\n- **Dependencies:** [ISS-001](#iss-001)."
+    },
+    {
+      "id": "ISS-004",
+      "title": "C++ Frontend Prototype",
+      "references": [
+        "core-spec.md#4-abi--interoperability"
+      ],
+      "dependencies": [
+        "ISS-002"
+      ],
+      "body": "## ISS-004 – C++ Frontend Prototype\n- **Scope:** Clang-based importer aligning with [core-spec.md#4-abi--interoperability](core-spec.md#4-abi--interoperability).\n- **Deliverables:** Template instantiation strategy, ABI compliance suite.\n- **Dependencies:** [ISS-002](#iss-002)."
+    },
+    {
+      "id": "ISS-005",
+      "title": "Python/HPy Translator",
+      "references": [
+        "architecture.md#5-security--safety"
+      ],
+      "dependencies": [
+        "ISS-003"
+      ],
+      "body": "## ISS-005 – Python/HPy Translator\n- **Scope:** Deterministic compartment wrapper referencing [architecture.md#5-security--safety](architecture.md#5-security--safety).\n- **Deliverables:** HPy capsules, dynamic capability sandbox tests.\n- **Dependencies:** [ISS-003](#iss-003)."
+    },
+    {
+      "id": "ISS-006",
+      "title": "TypeScript/JS Translator",
+      "references": [
+        "core-spec.md#4-abi--interoperability"
+      ],
+      "dependencies": [
+        "ISS-002"
+      ],
+      "body": "## ISS-006 – TypeScript/JS Translator\n- **Scope:** QuickJS/V8 integration per [core-spec.md#4-abi--interoperability](core-spec.md#4-abi--interoperability).\n- **Deliverables:** d.ts → capability compiler, Promise/async bridge tests.\n- **Dependencies:** [ISS-002](#iss-002)."
+    },
+    {
+      "id": "ISS-007",
+      "title": "Deterministic Runtime Core",
+      "references": [
+        "core-spec.md#5-runtime-contracts"
+      ],
+      "dependencies": [
+        "ISS-001",
+        "ISS-002"
+      ],
+      "body": "## ISS-007 – Deterministic Runtime Core\n- **Scope:** Scheduler + memory arenas per [core-spec.md#5-runtime-contracts](core-spec.md#5-runtime-contracts).\n- **Deliverables:** Latency benchmarks, telemetry hooks.\n- **Dependencies:** [ISS-001](#iss-001), [ISS-002](#iss-002)."
+    },
+    {
+      "id": "ISS-008",
+      "title": "Interop Bridges (HPy & V8)",
+      "references": [
+        "architecture.md#3-module-breakdown"
+      ],
+      "dependencies": [
+        "ISS-005",
+        "ISS-006"
+      ],
+      "body": "## ISS-008 – Interop Bridges (HPy & V8)\n- **Scope:** Runtime adapters referencing [architecture.md#3-module-breakdown](architecture.md#3-module-breakdown).\n- **Deliverables:** FFI conformance harness, failure diagnostics.\n- **Dependencies:** [ISS-005](#iss-005), [ISS-006](#iss-006)."
+    },
+    {
+      "id": "ISS-009",
+      "title": "Intent DSL & Agent Tooling",
+      "references": [
+        "architecture.md#2-agent-loop"
+      ],
+      "dependencies": [
+        "ISS-003",
+        "ISS-006"
+      ],
+      "body": "## ISS-009 – Intent DSL & Agent Tooling\n- **Scope:** Define DSL schema and tooling per [intent-dsl.md](intent-dsl.md) and [architecture.md#2-agent-loop](architecture.md#2-agent-loop).\n- **Deliverables:** Schema, editor plugins, validation suite (`.agents/tools/intent_schema.py`).\n- **Dependencies:** [ISS-003](#iss-003)–[ISS-006](#iss-006)."
+    },
+    {
+      "id": "ISS-010",
+      "title": "Autotuning & Telemetry Platform",
+      "references": [
+        "architecture.md#4-data-flows"
+      ],
+      "dependencies": [
+        "ISS-007"
+      ],
+      "body": "## ISS-010 – Autotuning & Telemetry Platform\n- **Scope:** Performance services described in [architecture.md#4-data-flows](architecture.md#4-data-flows).\n- **Deliverables:** Profilers, regression dashboards.\n- **Dependencies:** [ISS-007](#iss-007)."
+    },
+    {
+      "id": "ISS-011",
+      "title": "Security Hardening & Policy Engine",
+      "references": [
+        "architecture.md#5-security--safety"
+      ],
+      "dependencies": [
+        "ISS-007",
+        "ISS-008"
+      ],
+      "body": "## ISS-011 – Security Hardening & Policy Engine\n- **Scope:** Capability enforcement + attestation, referencing [architecture.md#5-security--safety](architecture.md#5-security--safety).\n- **Deliverables:** Policy DSL, automated audits.\n- **Dependencies:** [ISS-007](#iss-007), [ISS-008](#iss-008)."
+    }
+  ],
+  "intents": [
+    {
+      "file": "intents/INT-2025-0001.yaml",
+      "meta": {
+        "id": "INT-2025-0001",
+        "owner": "agent://builder-alpha",
+        "issue": "ISS-003",
+        "roadmap": "Phase-2",
+        "docs": [
+          "core-spec.md#1-semantic-kernel",
+          "intent-dsl.md#3-schema"
+        ]
+      },
+      "issue": "ISS-003",
+      "docs": [
+        "core-spec.md#1-semantic-kernel",
+        "intent-dsl.md#3-schema"
+      ],
+      "requirements": {
+        "goal": "Prototype Rust frontend lowering to clmr IR.",
+        "success_metrics": {
+          "coverage": ">=0.9",
+          "latency_ms": 50
+        }
+      },
+      "constraints": {
+        "effects": [
+          "io"
+        ],
+        "resources": {
+          "memory_mb": 512,
+          "time_min": 5
+        }
+      },
+      "interop": {
+        "consumes": [
+          "crate://serde"
+        ],
+        "produces": [
+          "abi://trisynk_fastcall"
+        ]
+      }
+    }
+  ],
+  "source": {
+    "issues": "docs/issues.md",
+    "intents": "intents"
+  }
+}

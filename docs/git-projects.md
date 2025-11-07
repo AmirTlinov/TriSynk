@@ -23,3 +23,7 @@
 ## CI Integration
 - Workflow [.github/workflows/ci.yml](../.github/workflows/ci.yml) blocks merges unless documentation, intent, and issue linting pass.
 - Status checks surface coverage/perf metrics collected by future steps referenced in [roadmap.md](roadmap.md).
+
+## Issue & Intent Export
+- Script [scripts/export_graph.py](../scripts/export_graph.py) emits `data/outbox/issues_intents.json`, unifying docs/issues.md and intents/* for GitHub Projects automation.
+- Export file feeds future bots that open/triage GitHub Issues, ensuring every card links back to documentation anchors.
