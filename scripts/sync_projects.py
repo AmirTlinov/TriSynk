@@ -69,7 +69,10 @@ def graphql_request(token: str, query: str, variables: dict[str, Any]) -> Any:
     try:
         with request.urlopen(req) as resp:  # noqa: S310
             charset = resp.headers.get_content_charset("utf-8")
-            return json.loads(resp.read().decode(charset))
+            data = json.loads(resp.read().decode(charset))
+            if data.get("errors"):
+                raise RuntimeError(f"GraphQL errors: {data['errors']}")
+            return data
     except error.HTTPError as exc:  # noqa: BLE001
         text = exc.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"GraphQL error {exc.code}: {text}") from exc
