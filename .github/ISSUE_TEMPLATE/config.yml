@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: TriSynk Vision & Spec
+    url: https://github.com/AmirTlinov/TriSynk/tree/main/docs
+    about: Review flagship documents before filing work.

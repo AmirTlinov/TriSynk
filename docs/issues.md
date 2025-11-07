@@ -41,8 +41,8 @@
 - **Dependencies:** [ISS-005](#iss-005), [ISS-006](#iss-006).
 
 ## ISS-009 – Intent DSL & Agent Tooling
-- **Scope:** Define DSL schema and tooling per [architecture.md#2-agent-loop](architecture.md#2-agent-loop).
-- **Deliverables:** Schema, editor plugins, validation suite.
+- **Scope:** Define DSL schema and tooling per [intent-dsl.md](intent-dsl.md) and [architecture.md#2-agent-loop](architecture.md#2-agent-loop).
+- **Deliverables:** Schema, editor plugins, validation suite (`.agents/tools/intent_schema.py`).
 - **Dependencies:** [ISS-003](#iss-003)–[ISS-006](#iss-006).
 
 ## ISS-010 – Autotuning & Telemetry Platform

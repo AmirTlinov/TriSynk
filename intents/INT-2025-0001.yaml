@@ -1,0 +1,29 @@
+intent: trisynk.v1
+meta:
+  id: INT-2025-0001
+  owner: agent://builder-alpha
+  issue: ISS-003
+  roadmap: Phase-2
+  docs:
+    - core-spec.md#1-semantic-kernel
+    - intent-dsl.md#3-schema
+requirements:
+  goal: "Prototype Rust frontend lowering to clmr IR."
+  success_metrics:
+    coverage: ">=0.9"
+    latency_ms: 50
+constraints:
+  effects: [io]
+  resources:
+    memory_mb: 512
+    time_min: 5
+interop:
+  consumes: ["crate://serde"]
+  produces: ["abi://trisynk_fastcall"]
+verifications:
+  proofs: ["lean://ownership_soundness"]
+  tests: ["suite://frontend_rust"]
+telemetry:
+  slos:
+    intent_to_binary_min: 5
+    crash_free_pct: 100

@@ -1,7 +1,7 @@
 # Architecture Blueprint
 
 ## 1. Layer Stack
-1. **Intent Layer:** DSL + spec repository feeding agent planners.
+1. **Intent Layer:** DSL + spec repository feeding agent planners (see [Intent DSL](intent-dsl.md)).
 2. **Synthesis Layer:** Multi-frontend compilers (Rust/Python/C++/TS) desugaring into `clmr` IR with embedded contracts.
 3. **Verification Layer:** Ownership/effect/resource passes + SMT/Lean proofs.
 4. **Optimization Layer:** Profile-guided transforms, autotuners, layout synthesis.
@@ -9,7 +9,7 @@
 
 ## 2. Agent Loop
 1. Agent ingests requirements → `.agents/context` entry.
-2. Generates intent DSL artifact referencing [Core Spec](core-spec.md) sections.
+2. Generates intent DSL artifact per [intent-dsl.md](intent-dsl.md) referencing [Core Spec](core-spec.md) sections.
 3. Requests compiler frontends for skeletons; receives `clmr` IR with inline contracts.
 4. Runs proof and property pipelines; failures emit actionable issue templates referencing [Issues](issues.md).
 5. Successful builds pass through autotuners + telemetry hooks, then get packaged with ABI manifests.
@@ -33,6 +33,7 @@
 ## 6. References
 - Requirements: [Vision](vision.md)
 - Semantics: [Core Specification](core-spec.md)
+- Intent: [Intent DSL](intent-dsl.md)
 - Timeline: [Roadmap](roadmap.md)
 - Execution: [Issues](issues.md)
 - Governance: [Git Projects Model](git-projects.md)

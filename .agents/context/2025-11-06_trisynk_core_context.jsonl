@@ -3,3 +3,5 @@
 {"source":"docs/architecture.md","summary":["Architecture blueprint enumerates layer stack, agent loop, modules, data flows, and safety controls."],"citation":"architecture.md"}
 {"source":"docs/roadmap.md","summary":["Roadmap schedules phases from bootstrap through hardening with issue references and success criteria."],"citation":"roadmap.md"}
 {"source":"docs/issues.md","summary":["Issue graph links numbered ISS tasks to document anchors ensuring traceable execution."],"citation":"issues.md"}
+{"source":"docs/intent-dsl.md","summary":["Intent DSL defines YAML schema, workflow, and validation rules for agent-driven development."],"citation":"intent-dsl.md"}
+{"source":"intents/INT-2025-0001.yaml","summary":["Reference intent for ISS-003 demonstrating required metadata, constraints, verification hooks, and telemetry SLOs."],"citation":"INT-2025-0001"}

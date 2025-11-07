@@ -5,10 +5,13 @@ required_files=(
   docs/vision.md
   docs/core-spec.md
   docs/architecture.md
+  docs/intent-dsl.md
   docs/roadmap.md
   docs/issues.md
   docs/git-projects.md
   .agents/context/2025-11-06_trisynk_core_context.jsonl
+  .agents/tools/intent_schema.py
+  intents/INT-2025-0001.yaml
 )
 
 for f in "${required_files[@]}"; do

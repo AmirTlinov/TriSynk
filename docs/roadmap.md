@@ -20,7 +20,7 @@
 - Validate ABI via sample workloads; require <5% overhead vs native baselines.
 
 ## Phase 4 – Agent Automation (Weeks 9–12 2026)
-- Intent DSL authoring tools + verification harness ([ISS-009](issues.md#iss-009)).
+- Intent DSL authoring tools + verification harness per [intent-dsl.md](intent-dsl.md) ([ISS-009](issues.md#iss-009)).
 - Autotuning/profiling services + telemetry feedback ([ISS-010](issues.md#iss-010)).
 
 ## Phase 5 – Hardening & Release (Weeks 13–16 2026)
