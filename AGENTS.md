@@ -24,6 +24,7 @@ Deliver flagship-grade TriSynk Core platform: deterministic semantics, multi-fro
 - `scripts/run_checks.sh` – baseline docs + lint + export + sync dry-run.
 - `scripts/lint_intents.sh`, `scripts/validate_issues.py` – governance for intents/issues.
 - `scripts/export_graph.py`, `scripts/sync_issues.py` – keep GitHub Project in sync.
+- Secrets: store local tokens under `.agents/secrets/` (ignored) and reference them via env vars when running sync scripts; production workflows consume repository secret `SYNC_GH_TOKEN`.
 - `scripts/check_metrics.py` (coverage/perf), plus domain-specific tooling under `scripts/` or `.agents/tools/`.
 
 ## Documentation & Specs

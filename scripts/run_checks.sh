@@ -38,6 +38,7 @@ required_files=(
   intents/INT-2025-0010.yaml
   intents/INT-2025-0011.yaml
   data/outbox/issues_intents.json
+  data/outbox/github_sync_payload.json
   reports/metrics.json
 )
 

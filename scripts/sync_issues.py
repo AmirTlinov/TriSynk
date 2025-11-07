@@ -72,9 +72,15 @@ def github_request(method: str, url: str, token: str, payload: dict[str, Any] | 
         raise RuntimeError(f"GitHub API error {exc.code}: {text}") from exc
 
 
-def push_payloads(payloads: list[dict[str, Any]], repo: str, token: str, dry_run: bool) -> None:
+def push_payloads(payloads: list[dict[str, Any]], repo: str | None, token: str, dry_run: bool, mock_output: Path | None) -> None:
     if dry_run:
         print(json.dumps({"preview": payloads}, indent=2, ensure_ascii=False))
+        return
+    if repo in {None, "local"} or mock_output is not None:
+        target = mock_output or Path("data/outbox/github_sync_payload.json")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(json.dumps(payloads, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"[sync-issues] Mock sync wrote {target}")
         return
     for payload in payloads:
         title = payload["title"]
@@ -93,6 +99,7 @@ def main() -> int:
     parser.add_argument("--graph", default=str(GRAPH_PATH))
     parser.add_argument("--repo", default=os.environ.get("GITHUB_REPO"))
     parser.add_argument("--apply", action="store_true", help="Create issues via GitHub API")
+    parser.add_argument("--mock-output", type=Path, help="Write payloads to file instead of hitting GitHub")
     args = parser.parse_args()
 
     graph = load_graph(Path(args.graph))
@@ -101,7 +108,7 @@ def main() -> int:
     dry_run = not args.apply
     if args.apply and (not token or not args.repo):
         raise SystemExit("--apply requires GITHUB_TOKEN and --repo or GITHUB_REPO")
-    push_payloads(payloads, args.repo, token or "", dry_run=dry_run)
+    push_payloads(payloads, args.repo, token or "", dry_run=dry_run, mock_output=args.mock_output)
     return 0
 
 

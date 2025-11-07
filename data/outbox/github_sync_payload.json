@@ -1,0 +1,161 @@
+[
+  {
+    "title": "ISS-001: Formalize Ownership & Borrow Checker",
+    "body": "## ISS-001 – Formalize Ownership & Borrow Checker\n- **Scope:** Implement affine ownership rules from [core-spec.md#1-semantic-kernel](core-spec.md#1-semantic-kernel).\n- **Deliverables:** SMT lemmas, compiler diagnostics catalog.\n- **Dependencies:** [ISS-002](#iss-002).\n\n### Linked Intents\n- `INT-2025-0002` (intents/INT-2025-0002.yaml): Formalize affine ownership & borrow checker semantics inside clmr.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-001",
+    "dependencies": [
+      "ISS-002"
+    ],
+    "references": [
+      "core-spec.md#1-semantic-kernel"
+    ]
+  },
+  {
+    "title": "ISS-002: Capability Graph & Effect Contracts",
+    "body": "## ISS-002 – Capability Graph & Effect Contracts\n- **Scope:** Build capability registry per [core-spec.md#2-type-system](core-spec.md#2-type-system).\n- **Deliverables:** Contract schema + verification pass (see [architecture.md#2-agent-loop](architecture.md#2-agent-loop)).\n- **Dependencies:** None.\n\n### Linked Intents\n- `INT-2025-0003` (intents/INT-2025-0003.yaml): Implement capability graph & effect contracts with verification pass.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-002",
+    "dependencies": [],
+    "references": [
+      "architecture.md#2-agent-loop",
+      "core-spec.md#2-type-system"
+    ]
+  },
+  {
+    "title": "ISS-003: Rust Frontend Prototype",
+    "body": "## ISS-003 – Rust Frontend Prototype\n- **Scope:** Parse Rust subset → `clmr` IR referencing [architecture.md#3-module-breakdown](architecture.md#3-module-breakdown) and [frontends.md#2-trisynk-rs-frontend](frontends.md#2-trisynk-rs-frontend).\n- **Deliverables:** Frontend CLI, regression tests covering 95% grammar features.\n- **Dependencies:** [ISS-001](#iss-001).\n\n### Linked Intents\n- `INT-2025-0001` (intents/INT-2025-0001.yaml): Prototype Rust frontend lowering to clmr IR.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-003",
+    "dependencies": [
+      "ISS-001"
+    ],
+    "references": [
+      "architecture.md#3-module-breakdown",
+      "frontends.md#2-trisynk-rs-frontend"
+    ]
+  },
+  {
+    "title": "ISS-004: C++ Frontend Prototype",
+    "body": "## ISS-004 – C++ Frontend Prototype\n- **Scope:** Clang-based importer aligning with [core-spec.md#4-abi--interoperability](core-spec.md#4-abi--interoperability) and [frontends.md#3-trisynk-cpp-frontend](frontends.md#3-trisynk-cpp-frontend).\n- **Deliverables:** Template instantiation strategy, ABI compliance suite.\n- **Dependencies:** [ISS-002](#iss-002).\n\n### Linked Intents\n- `INT-2025-0004` (intents/INT-2025-0004.yaml): Build trisynk-cpp importer via Clang AST + ABI validation suite.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-004",
+    "dependencies": [
+      "ISS-002"
+    ],
+    "references": [
+      "core-spec.md#4-abi--interoperability",
+      "frontends.md#3-trisynk-cpp-frontend"
+    ]
+  },
+  {
+    "title": "ISS-005: Python/HPy Translator",
+    "body": "## ISS-005 – Python/HPy Translator\n- **Scope:** Deterministic compartment wrapper referencing [architecture.md#5-security--safety](architecture.md#5-security--safety).\n- **Deliverables:** HPy capsules, dynamic capability sandbox tests.\n- **Dependencies:** [ISS-003](#iss-003).\n\n### Linked Intents\n- `INT-2025-0005` (intents/INT-2025-0005.yaml): Deliver deterministic HPy translator and sandbox harness.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-005",
+    "dependencies": [
+      "ISS-003"
+    ],
+    "references": [
+      "architecture.md#5-security--safety"
+    ]
+  },
+  {
+    "title": "ISS-006: TypeScript/JS Translator",
+    "body": "## ISS-006 – TypeScript/JS Translator\n- **Scope:** QuickJS/V8 integration per [core-spec.md#4-abi--interoperability](core-spec.md#4-abi--interoperability).\n- **Deliverables:** d.ts → capability compiler, Promise/async bridge tests.\n- **Dependencies:** [ISS-002](#iss-002).\n\n### Linked Intents\n- `INT-2025-0006` (intents/INT-2025-0006.yaml): Integrate QuickJS/V8 translator with capability-safe TypeScript binding compiler.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-006",
+    "dependencies": [
+      "ISS-002"
+    ],
+    "references": [
+      "core-spec.md#4-abi--interoperability"
+    ]
+  },
+  {
+    "title": "ISS-007: Deterministic Runtime Core",
+    "body": "## ISS-007 – Deterministic Runtime Core\n- **Scope:** Scheduler + memory arenas per [core-spec.md#5-runtime-contracts](core-spec.md#5-runtime-contracts).\n- **Deliverables:** Latency benchmarks, telemetry hooks.\n- **Dependencies:** [ISS-001](#iss-001), [ISS-002](#iss-002).\n\n### Linked Intents\n- `INT-2025-0007` (intents/INT-2025-0007.yaml): Implement deterministic scheduler + capability allocator with telemetry hooks.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-007",
+    "dependencies": [
+      "ISS-001",
+      "ISS-002"
+    ],
+    "references": [
+      "core-spec.md#5-runtime-contracts"
+    ]
+  },
+  {
+    "title": "ISS-008: Interop Bridges (HPy & V8)",
+    "body": "## ISS-008 – Interop Bridges (HPy & V8)\n- **Scope:** Runtime adapters referencing [architecture.md#3-module-breakdown](architecture.md#3-module-breakdown).\n- **Deliverables:** FFI conformance harness, failure diagnostics.\n- **Dependencies:** [ISS-005](#iss-005), [ISS-006](#iss-006).\n\n### Linked Intents\n- `INT-2025-0008` (intents/INT-2025-0008.yaml): Deliver HPy & V8 interop bridges with capability enforcement and diagnostics.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-008",
+    "dependencies": [
+      "ISS-005",
+      "ISS-006"
+    ],
+    "references": [
+      "architecture.md#3-module-breakdown"
+    ]
+  },
+  {
+    "title": "ISS-009: Intent DSL & Agent Tooling",
+    "body": "## ISS-009 – Intent DSL & Agent Tooling\n- **Scope:** Define DSL schema and tooling per [intent-dsl.md](intent-dsl.md) and [architecture.md#2-agent-loop](architecture.md#2-agent-loop).\n- **Deliverables:** Schema, editor plugins, validation suite (`.agents/tools/intent_schema.py`).\n- **Dependencies:** [ISS-003](#iss-003)–[ISS-006](#iss-006).\n\n### Linked Intents\n- `INT-2025-0009` (intents/INT-2025-0009.yaml): Extend Intent DSL tooling (schema, editors, validators) for full agent automation.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-009",
+    "dependencies": [
+      "ISS-003",
+      "ISS-006"
+    ],
+    "references": [
+      "architecture.md#2-agent-loop"
+    ]
+  },
+  {
+    "title": "ISS-010: Autotuning & Telemetry Platform",
+    "body": "## ISS-010 – Autotuning & Telemetry Platform\n- **Scope:** Performance services described in [architecture.md#4-data-flows](architecture.md#4-data-flows).\n- **Deliverables:** Profilers, regression dashboards.\n- **Dependencies:** [ISS-007](#iss-007).\n\n### Linked Intents\n- `INT-2025-0010` (intents/INT-2025-0010.yaml): Build autotuning/performance telemetry platform integrated with runtime metrics.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-010",
+    "dependencies": [
+      "ISS-007"
+    ],
+    "references": [
+      "architecture.md#4-data-flows"
+    ]
+  },
+  {
+    "title": "ISS-011: Security Hardening & Policy Engine",
+    "body": "## ISS-011 – Security Hardening & Policy Engine\n- **Scope:** Capability enforcement + attestation, referencing [architecture.md#5-security--safety](architecture.md#5-security--safety).\n- **Deliverables:** Policy DSL, automated audits.\n- **Dependencies:** [ISS-007](#iss-007), [ISS-008](#iss-008).\n\n### Linked Intents\n- `INT-2025-0011` (intents/INT-2025-0011.yaml): Implement capability policy engine, attestation workflow, and automated audits.",
+    "labels": [
+      "tri-sync"
+    ],
+    "tri_id": "ISS-011",
+    "dependencies": [
+      "ISS-007",
+      "ISS-008"
+    ],
+    "references": [
+      "architecture.md#5-security--safety"
+    ]
+  }
+]
