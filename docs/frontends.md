@@ -26,6 +26,7 @@ TriSynk frontends translate language-specific syntax (Rust/C++/Python/TypeScript
   - `constexpr` evaluated at compile time; side-effects flagged as violations.
 
 ## 4. Shared ABI/IR Requirements
+- **Schema:** JSON outputs conform to `schema/frontend_ir.schema.json`; enforced by `scripts/test_frontends.py`.
 - **IR Ops:** Each frontend must emit `clmr.module` with `intent`/`resource`/`slo` attributes for all functions.
 - **ABI Manifests:** YAML/JSON descriptors listing exported symbols, layout hashes, capability requirements, telemetry hooks.
 - **Validation:** `clmr-verify` pass ensures ownership/effect correctness before runtime linking.

@@ -25,6 +25,7 @@
 - Coverage + proof artifacts stored per build and indexed by issue IDs.
 - Git Projects board consumes roadmap milestones to auto-populate lanes, using `data/outbox/issues_intents.json` exported by [scripts/export_graph.py](../scripts/export_graph.py) and synced through [scripts/sync_issues.py](../scripts/sync_issues.py) / [.github/workflows/sync-issues.yml](../.github/workflows/sync-issues.yml).
 - Coverage/perf metrics flow into `reports/metrics.json` guarded by [scripts/check_metrics.py](../scripts/check_metrics.py) and surfaced in CI.
+- Metrics history stored append-only in `reports/history/metrics_history.jsonl` via [scripts/update_metrics_history.py](../scripts/update_metrics_history.py).
 
 ## 5. Security & Safety
 - Strict compartmentalization for dynamic languages; only deterministic projections cross boundaries.

@@ -12,6 +12,7 @@ RS = ROOT / "frontends" / "samples" / "sample.rs"
 CPP = ROOT / "frontends" / "samples" / "sample.cpp"
 RS_FRONTEND = ROOT / "frontends" / "trisynk-rs" / "frontend.py"
 CPP_FRONTEND = ROOT / "frontends" / "trisynk-cpp" / "frontend.py"
+SCHEMA = json.loads((ROOT / "schema" / "frontend_ir.schema.json").read_text(encoding="utf-8"))
 
 
 def run(cmd: list[str]) -> str:
@@ -20,15 +21,25 @@ def run(cmd: list[str]) -> str:
 
 
 def validate(payload: dict) -> None:
-    required = {"module", "language", "functions", "abi"}
-    missing = required - payload.keys()
-    if missing:
-        raise SystemExit(f"Payload missing keys: {missing}")
-    if not isinstance(payload["functions"], list) or not payload["functions"]:
+    for key in SCHEMA["required"]:
+        if key not in payload:
+            raise SystemExit(f"Missing key {key}")
+    if payload["language"] not in {"rust", "cpp"}:
+        raise SystemExit(f"Unsupported language {payload['language']}")
+    functions = payload.get("functions", [])
+    if not isinstance(functions, list) or not functions:
         raise SystemExit("Functions list empty")
-    for fn in payload["functions"]:
-        if "name" not in fn:
-            raise SystemExit(f"Function missing name: {fn}")
+    for fn in functions:
+        for field in ("name", "effects", "resources"):
+            if field not in fn:
+                raise SystemExit(f"Function missing {field}: {fn}")
+        if not isinstance(fn["effects"], list):
+            raise SystemExit("effects must be list")
+        if not isinstance(fn["resources"], dict):
+            raise SystemExit("resources must be object")
+    abi = payload.get("abi", {})
+    if abi.get("calling_convention") != "trisynk_fastcall":
+        raise SystemExit("ABI calling convention mismatch")
 
 
 def main() -> int:
